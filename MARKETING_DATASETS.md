@@ -1849,3 +1849,290 @@ print("Data location: ./data/marketing/ and ./data/agent/")
 ---
 
 *Last updated: 2026-07-04*
+
+---
+
+## PART 22: KAGGLE DATASETS (Via Kaggle API)
+
+### How to Access Kaggle Datasets
+
+```bash
+# Install Kaggle CLI
+pip3 install kaggle
+
+# List datasets by search
+python3 -m kaggle datasets list --search "marketing" --sort-by votes
+
+# Download a dataset
+python3 -m kaggle datasets download -d <owner>/<dataset-name>
+```
+
+### TOP KAGGLE MARKETING DATASETS (Ranked by Votes)
+
+#### E-Commerce & Sales (Most Useful)
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **Brazilian E-Commerce (Olist)** ⭐⭐⭐ | 44.7MB | 4,325 | Full customer journey: orders, products, reviews, geolocation, funnel |
+| **Amazon Sales Dataset** | 2MB | 1,657 | Product listings, sales rankings, reviews |
+| **E-Commerce Sales Dataset** | 6.6MB | 961 | Sales performance data |
+| **Customer Shopping Trends** | 150KB | 917 | Consumer behavior patterns |
+| **eCommerce Behavior (4.6GB!)** | 4.6GB | 878 | Multi-category store behavior, 4.6GB |
+
+#### Customer & Segmentation
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **Telco Customer Churn** ⭐⭐⭐ | 176KB | 3,753 | Customer churn prediction, retention |
+| **Mall Customer Segmentation** | 1.6KB | 2,117 | Customer clustering, persona development |
+| **Credit Card Customers** | 388KB | 2,476 | Spending patterns, customer value |
+| **Customer Personality Analysis** | 63KB | 2,990 | RFM segmentation, campaign targeting |
+| **Shopping Behavior & Preferences** | 72KB | 78 | Consumer preferences, purchase patterns |
+
+#### Advertising & Marketing Campaigns
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **Marketing Analytics** | 658KB | 740 | Multi-channel marketing data |
+| **Bank Marketing Dataset** | 146KB | 655 | Direct marketing campaigns (UCI alternative) |
+| **Marketing Campaign (Olist Funnel)** | 285KB | 331 | Marketing funnel, lead → purchase |
+| **Global Ads Performance (Google/Meta/TikTok)** ⭐ | 60KB | 60 | Multi-platform ad metrics |
+| **Social Media Ad Performance** | 16MB | 64 | Social advertising ROI |
+
+#### A/B Testing & Conversion
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **A/B Test Data** ⭐⭐⭐ | 29KB | 182 | A/B testing fundamentals |
+| **Mobile Games A/B Testing** | 501KB | 104 | A/B test statistical analysis |
+| **Fast Food Marketing A/B Test** | 3.4KB | 99 | Ad campaign A/B testing |
+| **Marketing A/B Testing** ⭐⭐ | 5.5MB | 78 | Ad campaign A/B results |
+| **E-commerce A/B Testing 2022** | 3.5MB | 18 | Real e-commerce experiments |
+
+#### CTR & Click Prediction
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **Predict Conversion in Digital Marketing** ⭐⭐⭐ | 542KB | 119 | Conversion prediction, ad optimization |
+| **CTR in Advertisement** | 7.5MB | 45 | Click-through rate patterns |
+| **DIGIX Advertisement CTR Prediction** | 1.3GB | 90 | Video ad CTR prediction |
+| **Criteo CTR Dataset (small)** | 88MB | 13 | Industry standard CTR data |
+| **Ad Display/Click Data on Taobao** | 262MB | 43 | Real ad click data |
+
+#### Uplift & Causal Modeling
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **Uplift Modeling (Marketing Campaign)** ⭐⭐⭐ | 340MB | 47 | Uplift modeling, causal inference |
+| **Criteo Uplift V2.1** | 340MB | 2 | Treatment effect estimation |
+| **Criteo Attribution Modeling** | 672MB | 6 | Multi-touch attribution |
+
+#### Social Media & Influencer
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **Social Media Influencers 2022** | 438KB | 254 | Influencer marketing, engagement |
+| **Top Instagram Influencers (Cleaned)** | 6KB | 186 | Instagram performance metrics |
+| **Viral Social Media Trends** | 231KB | 112 | Viral content patterns |
+| **Social Media Engagement** | 2KB | 152 | Engagement prediction |
+
+#### Product & Inventory
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **Brazilian E-Commerce (Olist)** | 44.7MB | 4,325 | Products, orders, reviews, sellers |
+| **Amazon Products 2023 (1.4M)** | 104MB | 343 | Massive product catalog |
+| **RetailRocket Recommender** | 305MB | 620 | E-commerce recommendations |
+| **Instacart Dataset** | 4.6GB+ | 878 | Full market basket analysis |
+
+#### Financial & Transaction
+
+| Dataset | Size | Votes | Why Critical |
+|---------|------|-------|--------------|
+| **Credit Card Fraud Detection** | 69MB | 13,318 | Fraud patterns (similar to ad fraud) |
+| **Credit Card Customers** | 388KB | 2,476 | Spending segmentation |
+| **Banking Dataset - Marketing Targets** | 590KB | 378 | Bank marketing, lead conversion |
+
+---
+
+## PART 23: OTHER SOURCES (GitHub, UCI, etc.)
+
+### GitHub Repositories with Marketing Data
+
+| Repo | URL | Data Type |
+|------|-----|-----------|
+| **Zayd1602/Facebook-Ad-Campaign-Analysis** | github.com/Zayd1602/Facebook-Ad-Campaign-Analysis | FB ad performance |
+| **Gio9248/Marketing-Dataset-AB-Testing** | github.com/Gio9248/Marketing-Dataset-AB-Testing | 588K A/B test samples |
+| **RogerForger/Google-Facebook-Ads-Performance** | github.com/RogerForger/Google-Facebook-Ads-Performance-Dataset | Google + FB ads |
+| **marmotte5/wellness-instagram-hashtags** | github.com/marmotte5/wellness-instagram-hashtags | 2000+ hashtags |
+| **subwaymatch/instacart-dataset-2017** | github.com/subwaymatch/instacart-dataset-2017 | Instacart market basket |
+
+### UCI Machine Learning Repository
+
+| Dataset | URL | Size | Best For |
+|---------|-----|------|----------|
+| **Bank Marketing** | archive.ics.uci.edu/ml/datasets/bank+marketing | 45K | Campaign response prediction |
+| **Online Shoppers Purchasing Intention** | archive.ics.uci.edu/ml/datasets/Online+Shoppers+Purchasing+Intention+Dataset | 12K | Purchase intent modeling |
+| **Wholesale Customers** | archive.ics.uci.edu/ml/datasets/Wholesale+customers | 440 | Customer segmentation |
+| **Chess (King-Rook vs King)** | archive.ics.uci.edu/ml/datasets/Chess+(King-Rook+vs.+King-Pawn) | 28K | Game theory basics |
+
+---
+
+## PART 24: COMPETITION DATASETS (Famous Ad/Click Data)
+
+### Famous Advertising Competitions
+
+| Competition | Dataset | Size | What It Contains |
+|------------|---------|------|------------------|
+| **Criteo Display Ad Challenge** | Criteo dataset | 4.6TB full / 88MB small | 24 days of ads, clicks, conversions |
+| **Avazu CTR Prediction** | Avazu dataset | 1.3GB | 10 days of display ads, 40M rows |
+| **KDD Cup 1999** | Network intrusion | 4.8GB | Anomaly detection (similar to fraud) |
+| **Outbrain Click Prediction** | Outbrain dataset | ~1GB | Page views, doc ads, click events |
+
+### How to Download Competition Data
+
+```bash
+# Criteo sample (88MB)
+python3 -m kaggle datasets download -d leonerd/criteo-small
+
+# Avazu sample
+python3 -m kaggle datasets download -d wuyingwen06/avazu-ctr-train
+
+# Uplift modeling
+python3 -m kaggle datasets download -d arashnic/uplift-modeling
+```
+
+---
+
+## PART 25: FINAL USEFULNESS MAP FOR MAIS 2.0
+
+### By MAIAgent Layer
+
+| Layer | Best Kaggle Datasets | Best HF Datasets | Best GitHub |
+|-------|---------------------|-------------------|-------------|
+| **Reward Denoising (Causal)** | Uplift Modeling (340MB), Criteo Uplift | Causal Inference Datasets | A/B Testing (588K) |
+| **Content Generation** | Brazilian E-Commerce reviews | Amazon Reviews Multi, HH-RLHF | Ad Creative datasets |
+| **Customer Understanding** | Telco Churn, Customer Segmentation, Shopping Trends | Amazon Reviews Multi | Bank Marketing |
+| **Tool Orchestration** | Global Ads Performance, CTR datasets | ToolBench, Berkeley FC | Google/Facebook Ads |
+| **Learning (RLHF)** | - | UltraFeedback, HelpSteer, HH-RLHF | - |
+
+### Priority Download Order
+
+```
+TIER 1 (Download First):
+1. olistbr/brazilian-ecommerce           # Full customer journey
+2. mkechinov/ecommerce-behavior-data       # 4.6GB behavior data
+3. openbmb/UltraFeedback                   # RLHF quality scoring
+4. arashnic/uplift-modeling               # Causal/marketing campaign
+5. faviovaz/marketing-ab-testing           # A/B testing
+
+TIER 2 (Download Second):
+6. sergylog/ab-test-data                 # A/B test fundamentals
+7. alperenmyung/social-media-advertisement-performance
+8. nunavige/amazon-reviews-multi          # Sentiment analysis
+9. HelpSteer/steer                       # Quality dimensions
+10. Anthropic/hh-rlhf                    # Agent alignment
+
+TIER 3 (Download If Needed):
+11. leonerd/criteo-small                 # CTR prediction
+12. mrmorj/political-advertisements-from-facebook
+13. arashnic/ctr-in-advertisement
+14. njupkg/groceries-dataset              # Market basket
+```
+
+---
+
+## PART 26: DOWNLOAD COMMAND SCRIPTS
+
+### Quick Start - Download Top 10 Most Useful
+
+```python
+#!/usr/bin/env python3
+"""
+MAIS 2.0 - Download Top 10 Marketing Datasets
+Run: python download_marketing_datasets.py
+"""
+
+import subprocess
+import os
+
+os.makedirs("./data/kaggle", exist_ok=True)
+os.chdir("./data/kaggle")
+
+datasets = [
+    # E-Commerce & Customer (TIER 1)
+    "olistbr/brazilian-ecommerce",
+    "mkechinov/ecommerce-behavior-data-from-multi-category-store",
+    
+    # A/B Testing & Causal (TIER 1)
+    "faviovaz/marketing-ab-testing",
+    "arashnic/uplift-modeling",
+    "sergylog/ab-test-data",
+    
+    # Customer Understanding (TIER 2)
+    "blastchar/telco-customer-churn",
+    "vjchoudhary7/customer-segmentation-tutorial-in-python",
+    "iamsouravbanerjee/customer-shopping-trends-dataset",
+    
+    # Ad Performance (TIER 2)
+    "nudratabbas/global-ads-performance-google-meta-tiktok",
+    "alperenmyung/social-media-advertisement-performance",
+]
+
+for dataset in datasets:
+    print(f"Downloading {dataset}...")
+    subprocess.run([
+        "python3", "-m", "kaggle", "datasets", "download", "-d", dataset, "-p", "."
+    ], check=True)
+
+print("✅ Download complete!")
+```
+
+### Alternative: Use wget/curl (No Kaggle Login)
+
+```bash
+# UCI Datasets (No login required)
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip
+wget https://archive.ics.uci.edu/ml/machine-learning-databases/00468/Online+Shoppers+Purchasing+Intention+Dataset.zip
+
+# HuggingFace (No login required)
+python3 -c "from datasets import load_dataset; ds = load_dataset('mteb/amazon_reviews_multi', 'en', split='train'); ds.to_parquet('amazon_reviews_en.parquet')"
+```
+
+---
+
+## PART 27: SYNTHESIS - WHAT WE HAVE NOW
+
+### Complete Data Coverage for MAIS 2.0
+
+| MAIAgent Need | Dataset Source | Status |
+|--------------|---------------|--------|
+| **Campaign Response** | Bank Marketing (UCI), Olist E-commerce | ✅ Covered |
+| **Customer Segmentation** | Telco Churn, Mall Customers, Olist | ✅ Covered |
+| **Purchase Intent** | Online Shoppers (UCI), Shopping Trends | ✅ Covered |
+| **Ad Performance** | Global Ads, Social Media Ads, CTR datasets | ✅ Covered |
+| **A/B Testing** | Marketing A/B, AB Test Data, Fast Food AB | ✅ Covered |
+| **Uplift/Causal** | Uplift Modeling, Criteo Uplift | ✅ Covered |
+| **Content Quality** | UltraFeedback, HelpSteer, HH-RLHF | ✅ Covered |
+| **Tool Use** | ToolBench, Berkeley FC, AgentInstruct | ✅ Covered |
+| **Sentiment** | Amazon Reviews Multi, Reviews datasets | ✅ Covered |
+| **Market Basket** | Instacart, Olist, Groceries | ✅ Covered |
+| **Social/Influencer** | Instagram Influencers, Social Media | ✅ Covered |
+| **RLHF Alignment** | UltraFeedback, HelpSteer, OASST1 | ✅ Covered |
+
+### GAP ANALYSIS COMPLETE
+
+All major data needs for MAIS 2.0 can be met with publicly available datasets:
+
+- ✅ **Campaign optimization** → Bank Marketing, Olist, A/B Testing
+- ✅ **Customer understanding** → Churn, Segmentation, Shopping Trends  
+- ✅ **Content generation** → Amazon Reviews, Ad Creative datasets
+- ✅ **Causal inference** → Uplift Modeling, Criteo Uplift, A/B Testing
+- ✅ **Tool orchestration** → ToolBench, Google/Meta Ads datasets
+- ✅ **Learning & alignment** → UltraFeedback, HH-RLHF, HelpSteer
+
+**No proprietary data required to build and test MAIAgent core capabilities.**
+
+---
+
+*Last updated: 2026-07-04*
