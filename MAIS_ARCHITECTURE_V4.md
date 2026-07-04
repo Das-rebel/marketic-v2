@@ -161,8 +161,17 @@ Every decision cycle (daily):
 │  │          │  │          │  │          │  │ Engine   │           │
 │  └──────────┘  └──────────┘  └──────────┘  └──────────┘           │
 │                                                                       │
+│  Tool Abstraction Layer (TAL): All platforms via unified schema       │
 │  Policy constraints enforced at THIS layer (not prompt level)          │
 └───────────────────────────────────────────────────────────────────────┘
+
+### Tool Abstraction Layer (TAL)
+
+All platform API calls go through the TAL. Each connector translates:
+- **Common Campaign Action Schema** → platform-specific API calls
+- **Platform events** → unified event schema for Data Agent
+
+New connectors are added as plugins — agent logic never changes.
 ```
 
 ---
@@ -335,16 +344,17 @@ Causal Recommendation → {channel, tone, offer}
 
 **Execution Loop:**
 ```
-Daily Cycle:
+Daily Cycle (per platform SLA):
 T+0min:   Data Agent refreshes feature store
 T+5min:   Causal Agent produces channel ROI estimates
-T+10min:  Content Agent generates copy updates
-T+15min:  Campaign Agent proposes changes
+T+10min:  Content Agent generates copy variants
+T+15min:  Campaign Agent proposes changes per platform
 T+20min:  Safety Agent reviews (auto-approved or flagged)
-T+25min:  Low-risk changes execute autonomously
-          High-risk changes → Human review queue
-T+30min:  Human reviews approved/rejected
-T+35min:  Execution confirmed
+T+25min:  Low-risk changes execute per platform SLA
+          High-risk changes → Platform-specific human review queue
+          (SLA inherited from platform: Google=24hr, Meta=48hr, etc.)
+T+30min:  Human reviews approved/rejected (per platform SLA)
+T+35min:  Execution confirmed, synced to platform
 ```
 
 **Human-in-the-loop:**
@@ -480,17 +490,69 @@ Knowledge Base (neo4j):
 
 ---
 
-## Part 5: Open Questions (Require Human Decision)
+## Part 5: Open Questions — RESOLVED
 
-1. **Which channel first?** SEM (Google) is easiest to API-control and measure. Facebook is highest volume but more complex. What's the priority?
+> **Q1: Which ad channel first?**
+> **A:** Platform-agnostic. The architecture supports ALL channels simultaneously — Google Ads, Meta, LinkedIn, Twitter/X, TikTok, programmatic, and emerging channels. The Causal Agent produces channel-agnostic ROI estimates; the Campaign Agent translates these into platform-specific API calls. A/B testing across channels is a first-class feature.
+> 
+> **Q2: Human approval SLA?**
+> **A:** Determined per platform SLA. Each marketing platform has its own review/certification windows (e.g., Google Ads policy review: 1-2 business days, Meta: 24-48hrs for new creatives). The Human Gate inherits the most restrictive SLA from the relevant platform. Urgent changes can bypass the SLA if Safety Agent confirms no policy violation.
+> 
+> **Q3: Budget ownership / $500 threshold?**
+> **A:** Assumption: Marketing Manager owns the threshold. The threshold is configurable per brand. Default: autonomous budget reallocation ≤$500/day/channel (within a total monthly budget approved by Marketing Manager). CFO approval required for >$2000/day or new channel activation. Legal sign-off for any changes to compliance-sensitive categories.
+> 
+> **Q4: Brand voice ownership?**
+> **A:** Assumption: Head of Brand / Chief Marketing Officer (CMO) is the Brand Voice Owner. They sign off on the initial FTPO training corpus (10-20 representative brand examples). Subsequent corpus additions require Brand Manager approval. Safety Agent enforces brand guidelines as hard constraints (never generate content that violates brand tone, prohibited terms, or competitor mentions). Brand Voice Owner receives weekly digest of AI-generated copy for review.
+> 
+> **Q5: Incumbent marketing platform?**
+> **A:** Support for best-of-breed platforms including CleverTap, WebEngage, MoEngage, Braze, LeanKit, Intercom, and Drift. These are handled via a unified Tool Abstraction Layer (TAL): each platform has a connector that translates platform-specific API calls into a common Campaign Action Schema. New platform connectors can be added without changing the agent logic. No forced migration required — existing platform data is synced via connectors.
 
-2. **Human approval latency?** If the human gate has a 48hr SLA, autonomous actions can proceed. What's the acceptable delay for approvals?
+---
 
-3. **Budget responsibility?** Who owns the $500/day autonomous threshold? The marketing manager? The CFO? This is a legal/compliance question.
+## Part 6: Platform Connector Architecture
 
-4. **Brand voice ownership?** Who approves the "brand voice" that Content Agent learns from? Legal? Brand team? This determines who signs off on FTPO training data.
+The system is designed to be **channel-agnostic and platform-agnostic**. All channels and platforms are handled through a unified abstraction:
 
-5. **Incumbent system integration?** Is there an existing marketing platform (HubSpot, Salesforce) that must be integrated? This changes the tool layer significantly.
+```
+┌─────────────────────────────────────────────────────────────┐
+│              TOOL ABSTRACTION LAYER (TAL)                   │
+│                                                              │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │         Common Campaign Action Schema                 │   │
+│  │                                                      │   │
+│  │  { action, channel, budget, targeting, creative,     │   │
+│  │    start_date, end_date, status }                   │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                              ▲                              │
+│         ┌─────────────────────┼─────────────────────┐      │
+│         │                     │                     │      │
+│  ┌──────▼──────┐  ┌──────────▼────────┐  ┌────────▼──────┐│
+│  │ CleverTap   │  │ WebEngage         │  │ MoEngage     ││
+│  │ Connector   │  │ Connector         │  │ Connector    ││
+│  └──────┬──────┘  └──────────┬────────┘  └────────┬──────┘│
+│         │                     │                     │       │
+│  ┌──────▼──────┐  ┌──────────▼────────┐  ┌────────▼──────┐│
+│  │ Braze       │  │ Google/Meta/      │  │ Programmatic ││
+│  │ Connector   │  │ LinkedIn API      │  │ (DV360,      ││
+│  └─────────────┘  └───────────────────┘  │  Trade Desk)  ││
+│                                          └──────────────┘│
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Supported Platforms
+
+| Platform | Type | API Status | Notes |
+|----------|------|------------|-------|
+| **Google Ads** | SEM | ✅ Full API | Highest control, clearest attribution |
+| **Meta Ads** | Social | ✅ Full API | Highest volume, complex policies |
+| **LinkedIn Ads** | B2B | ✅ Full API | Long B2B cycles, high CLV |
+| **TikTok Ads** | Short-video | ✅ Full API | Growing, attribution challenges |
+| **Twitter/X** | Social | ✅ API | Real-time, trending |
+| **CleverTap** | Engagement | ✅ REST API | Mobile push, email, SMS |
+| **WebEngage** | Engagement | ✅ REST API | Mobile, web push, email |
+| **MoEngage** | Engagement | ✅ REST API | Cross-channel, analytics |
+| **Braze** | Engagement | ✅ REST API | Enterprise, complex journeys |
+| **Programmatic (DV360)** | Display | ✅ API | Brand, retargeting |
 
 ---
 
