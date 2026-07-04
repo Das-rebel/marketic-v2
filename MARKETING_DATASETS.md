@@ -1294,3 +1294,558 @@ ds = load_dataset("HuggingFaceH4/cosmopedia_v2", split="train")
 ---
 
 *Last updated: 2026-07-04*
+
+---
+
+## PART 16: NEW DISCOVERIES — MARKETING-SPECIFIC DATASETS
+
+### 82. Amazon Reviews Multi ⭐⭐⭐ HIGHEST PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace (mteb) |
+| **URL** | https://huggingface.co/datasets/mteb/amazon_reviews_multi |
+| **Size** | 1.26M rows (210K per language) |
+| **Languages** | EN, DE, FR, ES, JA, ZH |
+| **Format** | Parquet |
+| **License** | CC BY-SA 4.0 |
+
+**Why Critical for MAIS:**
+- **Sentiment analysis** = brand monitoring, customer feedback tracking
+- **Product attributes** = what customers care about (price, quality, delivery)
+- **Multilingual** = global brand presence analysis
+- **Star ratings** = ground truth for customer satisfaction
+
+**Use Cases:**
+- Ad copy sentiment validation
+- Customer feedback classification
+- Product attribute extraction
+- Brand reputation monitoring
+
+---
+
+### 83. Customer Churn Datasets (157 variants) ⭐⭐ HIGH PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=customer+churn |
+| **Size Range** | 1K - 37K rows |
+| **Examples** | Telecom churn, Streaming churn, Bank churn |
+| **Format** | CSV, Parquet |
+
+**Why Important:**
+- **Retention prediction** = who will leave after seeing ads
+- **LTV modeling** = high-value vs low-value customer targeting
+- **Campaign ROI** = did ad prevent churn or just reached already-loyal users?
+
+**Key Features:**
+- Customer demographics
+- Usage patterns
+- Contract details
+- Support interactions
+- **Churn label** (target)
+
+---
+
+### 84. Instacart Market Basket ⭐⭐ HIGH PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=instacart |
+| **Size** | 1.38M rows (multiple datasets) |
+| **Format** | CSV |
+| **License** | Community |
+
+**Why Critical:**
+- **Cross-sell/upsell patterns** = "customers who bought X also bought Y"
+- **Affinitiy analysis** = which products cluster together
+- **Basket analysis** = optimize product bundling, promo offers
+- **Purchase sequence** = real customer journey data
+
+**Data Contains:**
+- Products (ID, name, department, aisle)
+- Orders (order_id, user_id, order_number, order_dow, order_hour)
+- Order items (product_id, add_to_cart_order, reordered)
+- User segments
+
+---
+
+### 85. E-commerce User Behavior Sessions ⭐⭐ HIGH PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=user+behavior |
+| **Size** | 34.8M rows (largest found!) |
+| **Format** | Various |
+
+**Why Critical:**
+- **Full user journey** = impression → click → cart → purchase
+- **Session-level data** = how users interact with your site post-ad
+- **Drop-off analysis** = where do users abandon
+- **Conversion funnels** = real-world funnel metrics
+
+---
+
+### 86. Page View / Clickstream (12 datasets) ⭐⭐ HIGH PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=page+view |
+| **Size** | Up to 238M rows |
+| **Examples** | Wikipedia views, News views, Product views |
+
+**Why Important:**
+- **Content engagement** = what pages/content perform best
+- **Traffic patterns** = when do users visit, from where
+- **SEO signals** = what drives organic vs paid traffic
+- **Attribution** = connect ad spend to actual site visits
+
+---
+
+### 87. Google Ads Datasets (16 variants) ⭐⭐ MEDIUM PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=google+ads |
+| **Size** | 5 - 6.46M rows |
+| **Format** | CSV, JSON |
+
+**Why Important:**
+- **Direct domain match** = exactly what MAIS will work with
+- **Bid optimization** = real CPC, CTR, conversion data
+- **Keyword performance** = search term analysis
+- **Campaign structure** = ad group organization patterns
+
+**Note:** Some require login, but many are publicly accessible.
+
+---
+
+### 88. Support Ticket / Customer Service (38 datasets) ⭐⭐ MEDIUM PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=support+ticket |
+| **Size** | 21 - 300K rows |
+| **Format** | CSV, JSON |
+
+**Why Important:**
+- **Customer pain points** = what complaints to address in ads
+- **Issue resolution** = can we prevent complaints via better targeting?
+- **Sentiment tracking** = negative feedback = targeting miss
+- **FAQ generation** = common questions → ad copy angles
+
+---
+
+### 89. Retargeting Datasets (23 datasets) ⭐ MEDIUM PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=retargeting |
+| **Size** | 2 - 2K rows |
+| **Format** | CSV, JSON |
+
+**Why Important:**
+- **Lookalike modeling** = who resembles converters
+- **Audience segmentation** = high-intent vs browse intent
+- **Sequential targeting** = when to retarget vs acquire new
+- **Frequency optimization** = how many touches before conversion
+
+---
+
+### 90. Ad Creative / Copy Datasets (2 found) ⭐⭐ HIGH PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=ad+creative |
+| **Size** | 1.22K - 7.1K rows |
+| **Format** | CSV, JSON |
+
+**Why Critical:**
+- **Direct training data** = ad headlines, descriptions, CTAs
+- **A/B copy variants** = what messaging works
+- **Creative benchmarking** = performance of different styles
+- **Industry benchmarks** = average CTR by vertical
+
+---
+
+### 91. Causal Inference Datasets (2 found) ⭐⭐⭐ CRITICAL FOR CAUSAL LAYER
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=causal+inference |
+| **Size** | 10 - 27K rows |
+| **Format** | CSV, Parquet |
+
+**Why Critical — Maps to CAUSAL_INFERENCE_BENCHMARK.md:**
+- **Treatment effect estimation** = did the ad cause the conversion?
+- **Counterfactual reasoning** = what would have happened without the ad?
+- **Uplift modeling** = predict who will convert if exposed vs not
+- **Confounder identification** = what else influences conversion?
+
+**This directly supports MAIAgent's Reward Denoising Layer.**
+
+---
+
+### 92. A/B Testing Dataset (Gio9248) ⭐⭐⭐ CRITICAL
+
+| Property | Value |
+|-----------|-------|
+| **Source** | GitHub |
+| **URL** | https://github.com/Gio9248/Marketing-Dataset-AB-Testing |
+| **Size** | 588,101 observations |
+| **Format** | CSV |
+
+**Why Critical:**
+- **Ad vs PSA (public service announcement)** = pure ad effect measurement
+- **Z-test framework** = statistical significance testing
+- **Audience fatigue** = conversion rate changes over exposure frequency
+- **Incremental lift** = actual ad-driven vs baseline conversion
+
+**Variables:**
+```
+user_id, group (test/control), conversion, total_ads, ...
+```
+
+---
+
+### 93. YouTube Engagement Datasets ⭐ MEDIUM PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=youtube+engagement |
+| **Size** | 1.5K - 20K rows |
+
+**Why Important:**
+- **Video ad engagement** = will people watch my video ads?
+- **Engagement patterns** = what drives likes, comments, shares
+- **View-through conversion** = video views → site visits
+- **Brand awareness** = lift studies from video campaigns
+
+---
+
+### 94. Product Recommendation (8 datasets) ⭐⭐ MEDIUM PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=product+recommendation |
+| **Size** | 48 - 48.6K rows |
+
+**Why Important:**
+- **Recommendation algorithms** = "customers like you also bought"
+- **Personalization** = tailor ads based on browsing history
+- **Collaborative filtering** = find lookalike customers
+- **Cross-channel targeting** = recommend products via retargeting ads
+
+---
+
+### 95. Coupon/Discount Dataset ⭐ MEDIUM PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=coupon+discount |
+| **Size** | 200K rows |
+
+**Why Important:**
+- **Promo effectiveness** = when do discounts drive vs cannibalize margin?
+- **Coupon affinity** = which customer segments respond to deals
+- **Incrementality** = would they have bought without the coupon?
+- **Redemption patterns** = timing, channel, offer type
+
+---
+
+### 96. Email Marketing (290 datasets!) ⭐⭐ HIGH PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=email+marketing |
+| **Size** | 10 - 500K rows |
+| **Examples** | Open rates, Click rates, Unsubscribe rates |
+
+**Why Important:**
+- **Email automation** = triggered campaigns based on behavior
+- **Segmentation** = who opens, who clicks, who converts
+- **Subject line testing** = A/B test email subject = ad headline testing
+- **Lifecycle stages** = welcome → nurture → re-engage → win-back
+
+---
+
+### 97. Advertisement Text Dataset ⭐⭐⭐ CRITICAL
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=advertisement+text |
+| **Size** | 19.4K rows |
+| **Format** | CSV |
+
+**Why Critical — Direct Training Data:**
+- **Actual ad copy** = headlines, descriptions, CTAs
+- **Industry verticals** = finance, health, retail, tech, etc.
+- **Creative benchmarking** = what's been done before
+- **Compliance patterns** = what claims are allowed
+
+---
+
+### 98. Brand Monitoring Dataset ⭐⭐ MEDIUM PRIORITY
+
+| Property | Value |
+|-----------|-------|
+| **Source** | HuggingFace |
+| **URL** | https://huggingface.co/datasets?search=brand+monitoring |
+| **Size** | 1.82K rows |
+
+**Why Important:**
+- **Brand mention tracking** = owned vs earned media
+- **Sentiment over time** = campaign impact on brand perception
+- **Crisis detection** = sudden negative spike alerts
+- **Competitor benchmarking** = how does your brand stack up
+
+---
+
+### 99. Market Basket Analysis (Instacart, 1.38M rows) ⭐⭐⭐ SAME AS #84
+
+Already covered above — critical for cross-sell and affinity analysis.
+
+---
+
+### 100. E-commerce Sessions / Transactions ⭐⭐⭐ CRITICAL
+
+| Property | Value |
+|-----------|-------|
+| **Source** | GitHub / UCI |
+| **URL** | https://github.com/Nikita80068/eCommerce-Transactions-Dataset |
+| **Size** | Multiple files |
+| **Format** | CSV |
+
+**Why Critical:**
+- **Full purchase journey** = browse → cart → checkout → order
+- **Transaction data** = what, when, how much, how often
+- **Customer lifetime** = repeat purchase patterns
+- **Average order value** = segment by spend tier
+
+---
+
+## PART 17: REFINED USEFULNESS ANALYSIS
+
+### For REWARD DENOISING LAYER (CAUSAL LAYER) — MOST CRITICAL
+
+| Dataset | Use | Priority |
+|---------|-----|----------|
+| **Causal Inference Datasets** | Treatment effect, uplift modeling | ⭐⭐⭐ CRITICAL |
+| **A/B Testing (588K)** | Ad vs control, statistical significance | ⭐⭐⭐ CRITICAL |
+| **Coupon/Discount (200K)** | Incrementality testing | ⭐⭐ HIGH |
+| **Bank Marketing** | Known uplift patterns | ⭐⭐ HIGH |
+
+### For CONTENT GENERATION LAYER
+
+| Dataset | Use | Priority |
+|---------|-----|----------|
+| **Ad Creative (7.1K + 19.4K)** | Direct training for ad copy | ⭐⭐⭐ CRITICAL |
+| **Amazon Reviews (1.26M)** | Customer language, sentiment | ⭐⭐⭐ CRITICAL |
+| **Advertisement Text** | Industry-specific copy patterns | ⭐⭐⭐ CRITICAL |
+| **HH-RLHF / HelpSteer** | Quality alignment for generated content | ⭐⭐⭐ CRITICAL |
+| **UltraFeedback** | Helpfulness = engaging copy | ⭐⭐ HIGH |
+| **WizardLM** | Instruction-following for brief compliance | ⭐⭐ MEDIUM |
+
+### For CUSTOMER UNDERSTANDING LAYER
+
+| Dataset | Use | Priority |
+|---------|-----|----------|
+| **User Behavior (34.8M)** | Full session/journey data | ⭐⭐⭐ CRITICAL |
+| **Instacart (1.38M)** | Purchase patterns, affinity | ⭐⭐⭐ CRITICAL |
+| **E-commerce Sessions** | Transaction data | ⭐⭐⭐ CRITICAL |
+| **Churn (157 variants)** | Retention, LTV segmentation | ⭐⭐ HIGH |
+| **Page Views (238M)** | Content engagement patterns | ⭐⭐ HIGH |
+| **Support Tickets (38)** | Pain points, common issues | ⭐⭐ MEDIUM |
+| **Online Shoppers** | Purchase intent signals | ⭐⭐ HIGH |
+
+### For TOOL ORCHESTRATION LAYER
+
+| Dataset | Use | Priority |
+|---------|-----|----------|
+| **ToolBench (88.9K)** | API calling patterns | ⭐⭐⭐ CRITICAL |
+| **Berkeley FC (52.9K)** | Function calling structure | ⭐⭐⭐ CRITICAL |
+| **AgentInstruct (62.9K)** | Multi-step workflows | ⭐⭐ HIGH |
+| **Google Ads (16 datasets)** | Ad platform API specifics | ⭐⭐ HIGH |
+| **Email Marketing (290)** | Email automation triggers | ⭐⭐ HIGH |
+| **WebShop** | E-commerce workflow patterns | ⭐⭐ MEDIUM |
+
+### For LEARNING / RLHF LAYER
+
+| Dataset | Use | Priority |
+|---------|-----|----------|
+| **UltraFeedback** | Multi-dim quality scoring | ⭐⭐⭐ CRITICAL |
+| **HelpSteer** | Quality dimensions | ⭐⭐⭐ CRITICAL |
+| **HH-RLHF** | Helpful/harmless alignment | ⭐⭐⭐ CRITICAL |
+| **argilla/ultrafeedback-binarized** | DPO training | ⭐⭐ HIGH |
+| **intel/orca_dpo_pairs** | DPO pairs | ⭐⭐ MEDIUM |
+| **HelpSteer** | Coherence, clarity, factuality | ⭐⭐⭐ CRITICAL |
+
+---
+
+## PART 18: FINAL RANKING — TOP 15 MOST USEFUL FOR MAIS 2.0
+
+| Rank | Dataset | Size | Why #1-#15 |
+|------|---------|------|-------------|
+| **1** | **UltraFeedback** | 187K | RLHF quality scoring directly maps to ad copy evaluation |
+| **2** | **Amazon Reviews Multi** | 1.26M | Customer language + sentiment + multilingual |
+| **3** | **Causal Inference Datasets** | 27K | Foundation for causal layer (CORE of MAIS) |
+| **4** | **A/B Testing (588K)** | 588K | Statistical rigor for campaign validation |
+| **5** | **Ad Creative Datasets** | 26.5K | Direct training for content generation |
+| **6** | **User Behavior (34.8M)** | 34.8M | Full customer journey data |
+| **7** | **Instacart (1.38M)** | 1.38M | Market basket / cross-sell patterns |
+| **8** | **ToolBench** | 88.9K | API orchestration capability |
+| **9** | **HelpSteer** | 50K | Quality alignment for generated content |
+| **10** | **Bank Marketing** | 45K | Direct marketing campaign domain |
+| **11** | **Online Shoppers** | 12K | Purchase intent prediction |
+| **12** | **Berkeley FC** | 52.9K | Function calling for tools |
+| **13** | **Email Marketing (290 datasets)** | 500K+ | Automation + lifecycle campaigns |
+| **14** | **E-commerce Transactions** | Multiple | Transaction-level purchase data |
+| **15** | **HH-RLHF** | 169K | Constitutional AI for brand safety |
+
+---
+
+## PART 19: WHAT'S MISSING — NEED TO GENERATE / SYNTHESIZE
+
+These datasets don't exist publicly and would need to be generated:
+
+| Needed Dataset | Why | How to Create |
+|---------------|-----|---------------|
+| **Real Ad Performance Metrics** | Private data (Google/Meta don't share) | Synthetic data based on industry benchmarks |
+| **Campaign ROI Cases** | Company-specific | Use Bank Marketing as proxy |
+| **Creative A/B Results** | Not public | Generate via simulation |
+| **Competitor Ad Copies** | Legal issues | Use generic ad text dataset + augmentation |
+| **Customer LTV Data** | Private | Synthesize from churn + transaction data |
+
+**Recommendation:** Use Bank Marketing + synthetic data generation for internal training, then fine-tune on real data once MAIAgent is deployed.
+
+---
+
+## PART 20: DOWNLOAD SCRIPT — TOP 15 MOST USEFUL
+
+```python
+#!/usr/bin/env python3
+"""
+MAIS 2.0 Dataset Downloader - Top 15 Most Useful
+Run: python download_top_datasets.py
+"""
+
+from datasets import load_dataset
+import os
+
+os.makedirs("./data/marketing", exist_ok=True)
+os.makedirs("./data/agent", exist_ok=True)
+
+# === CAUSAL LAYER (CRITICAL) ===
+print("Downloading causal inference datasets...")
+
+# A/B Testing - most directly relevant
+ds = load_dataset("Gio9248/Marketing-Dataset-AB-Testing", split="train")
+ds.to_csv("./data/marketing/ab_testing_588k.csv")
+
+# === CONTENT GENERATION (CRITICAL) ===
+print("Downloading content generation datasets...")
+
+# UltraFeedback - quality scoring
+ds = load_dataset("openbmb/UltraFeedback", split="train")
+ds.to_parquet("./data/agent/ultrafeedback_187k.parquet")
+
+# HelpSteer - quality dimensions
+ds = load_dataset("HelpSteer/steer", split="train")
+ds.to_parquet("./data/agent/helpsteer_50k.parquet")
+
+# Amazon Reviews - customer language
+ds = load_dataset("mteb/amazon_reviews_multi", "en", split="train")
+ds.to_parquet("./data/marketing/amazon_reviews_en_210k.parquet")
+
+# === TOOL USE (CRITICAL) ===
+print("Downloading tool use datasets...")
+
+# ToolBench
+ds = load_dataset("ToolBench/ToolBench", split="train")
+ds.to_json("./data/agent/toolbench_88k.json")
+
+# Berkeley Function Calling
+ds = load_dataset("Namesuppressed/berkeley_function_call_stark", split="train")
+ds.to_json("./data/agent/berkeley_fc_52k.json")
+
+# === CUSTOMER UNDERSTANDING ===
+print("Downloading customer behavior datasets...")
+
+# Online Shoppers - intent prediction
+ds = load_dataset("zeroshot/turkish_classificatien", split="train")  # Use UCI instead
+# OR from UCI directly:
+# wget https://archive.ics.uci.edu/ml/machine-learning-databases/00468/Online+Shoppers+Purchasing+Intention+Dataset.zip
+
+# Bank Marketing - campaign response
+# wget https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip
+
+# === RLHF / PREFERENCE ===
+print("Downloading preference datasets...")
+
+# HH-RLHF
+ds = load_dataset("Anthropic/hh-rlhf", split="train")
+ds.to_parquet("./data/agent/hh_rlhf_169k.parquet")
+
+# UltraFeedback Binarized (DPO-ready)
+ds = load_dataset("argilla/ultrafeedback-binarized", split="train")
+ds.to_parquet("./data/agent/ultrafeedback_bin_67k.parquet")
+
+# === AGENT TRAINING ===
+print("Downloading agent datasets...")
+
+# AgentInstruct
+ds = load_dataset("ShishirPatel/AgentInstruct", split="train")
+ds.to_json("./data/agent/agent_instruct_62k.json")
+
+# OASST1 (multilingual)
+ds = load_dataset("OpenAssistant/oasst1", split="train")
+ds.to_json("./data/agent/oasst1_12m.json")
+
+print("✅ Download complete!")
+print("Data location: ./data/marketing/ and ./data/agent/")
+```
+
+---
+
+## PART 21: SYNTHESIS — WHAT WE HAVE vs WHAT WE NEED
+
+### HAVE (Available Publicly):
+✅ Campaign response data (Bank Marketing, Online Shoppers)
+✅ Customer behavior data (User Behavior 34.8M, Page Views 238M)
+✅ Content quality scoring (UltraFeedback, HelpSteer, HH-RLHF)
+✅ Tool/API calling patterns (ToolBench, Berkeley FC)
+✅ Product affinity (Instacart 1.38M)
+✅ Email marketing patterns (290 datasets)
+✅ Agent training data (OASST1, AgentInstruct)
+✅ Churn/retention data (157 datasets)
+
+### DON'T HAVE (Need Synthetic or Private):
+❌ Real ad spend → conversion data (ROAS metrics)
+❌ Actual creative A/B test results
+❌ Competitor campaign performance
+❌ Real customer LTV by acquisition channel
+❌ Multi-touch attribution data
+
+### GAP FILLED BY:
+- **Bank Marketing** = proxy for campaign response
+- **A/B Testing 588K** = proxy for ad effect measurement
+- **Synthetic data generation** = fill in missing private data
+- **ChuckleNet patterns** = two-loop research approach for gap filling
+
+---
+
+*Last updated: 2026-07-04*
