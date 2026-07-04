@@ -1,0 +1,43 @@
+project: MAIS 3.0 SOTA Marketing AI
+question: "How to build SOTA marketing AI using public datasets + latest ML?"
+status: BOOTSTRAP COMPLETE
+phase: READY_FOR_INNER_LOOP
+created: 2026-07-04
+
+hypotheses:
+  H1:
+    claim: "Causal reward denoising improves campaign decisions by >15%"
+    status: UNTESTED
+    data: [uplift_modeling_340mb, criteo_uplift, ab_testing_588k]
+    metric: QINI coefficient
+  H2:
+    claim: "Multi-task shared backbone outperforms single-task by >3% AUC"
+    status: UNTESTED
+    data: [olist_ecommerce, telco_churn, ecomm_behavior_4.6gb]
+    metric: AUC-ROC per task
+  H3:
+    claim: "OPERA intrinsic rewards outperform DPO for ad copy quality"
+    status: UNTESTED
+    data: [ultrafeedback_187k, ad_creative_7k, amazon_reviews_1.26m]
+    metric: Lexical diversity + human eval
+  H4:
+    claim: "VALUE steering improves predicted CTR by >10%"
+    status: UNTESTED
+    data: [advertisement_text_19k, global_ads_performance]
+    metric: Predicted CTR from Layer 2
+  H5:
+    claim: "Policy-constrained agents reduce violations >90% with <5% task reduction"
+    status: UNTESTED
+    data: [toolbench_88k, tau_bench, agentinstruct_62k]
+    metric: pass^k + violation rate
+
+literature_coverage:
+  causal_inference: 10 papers (2024-2026)
+  rlhf_content: 11 papers (2025-2026)
+  tool_use_agents: 4 papers (2022-2024)
+  multi_task_marketing: 4 papers (2024-2025)
+  total: 29 papers
+
+dataset_coverage:
+  total_datasets: 150+
+  tier1_critical: 15 datasets
